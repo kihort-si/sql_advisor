@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: sql_advisor
+  datasource:
+    url: ${APP_DATABASE_URL:jdbc:postgresql://localhost:5432/sql_advisor}
+    username: ${APP_DATABASE_USERNAME:sql_advisor}
+    password: ${APP_DATABASE_PASSWORD:sql_advisor}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+server:
+  port: ${PORT:8080}
+
+advisor:
+  cors-origin: ${CORS_ORIGIN:http://localhost:4200}
+  statement-timeout-seconds: ${STATEMENT_TIMEOUT_SECONDS:30}
